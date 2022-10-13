@@ -35,7 +35,13 @@ async def handle(request):
 
 @bot.message_handler(commands=['start', 'help'])
 async def send_auth(message):
-    await bot.reply_to(message, message.from_user['id'])
+    await bot.reply_to(message, '''
+        不保存任何信息，但需要绑定flomo api用于推送。  
+        实现了文字以及单张图文的功能，多图的tg支持比较差，有时间再说了。
+        
+        简单使用教程：
+        https://telegra.ph/Flomo-Tg-Bot%E6%9C%BA%E5%99%A8%E4%BA%BA-10-13
+        ''')
 
 @bot.message_handler(commands=['bind'])
 async def bind(message):

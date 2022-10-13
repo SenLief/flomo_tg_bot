@@ -2,7 +2,7 @@
 API_TOKEN = '563623xxxx:AAGg6Fg_sEm1u5sZ1Twg-lhhm2K-xxxxxg'
 
 # nginx反代域名，要求必须用https
-WEBHOOK_HOST = 'https://bot.tg.com'
+WEBHOOK_HOST = 'bot.tg.com'
 
 # 端口
 WEBHOOK_PORT = 8443  # 443, 80, 88 or 8443 (port need to be 'open')
