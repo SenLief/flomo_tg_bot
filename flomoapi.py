@@ -16,15 +16,10 @@ async def post_images(session, file_url, img: bytes):
     return file_id
 
 
-async def post(session, memo_url, text, *file_ids: list):
-    if file_ids:
-        data = {
-            "content": text,
-            "file_ids": file_ids
-            }
-    else:
-        data = {
-            "content": text
+async def post(session, memo_url, text, file_ids: list):
+    data = {
+        "content": text,
+        "file_ids": file_ids
         }
     async with session.post(memo_url, json=data) as resp:
         msg = await resp.json()
@@ -38,12 +33,12 @@ async def main(memo_url, text, *imgs):
     async with aiohttp.ClientSession() as session:
         if len(imgs) != 0 :
             file_ids = []
-            for img in imgs:
-                file_id = await post_images(session, memo_url + 'file', img[0])
-                file_ids.append(file_id)
+            for img in imgs[0]:
+                file_id = await post_images(session, memo_url + 'file', img)
+                file_ids.append(str(file_id))
             slug = await post(session, memo_url, text, file_ids)
         else:
-            slug = await post(session, memo_url, text)
+            slug = await post(session, memo_url, text, [])
     return slug
 
 

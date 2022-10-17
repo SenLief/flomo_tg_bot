@@ -1,6 +1,7 @@
 # @BotFather api token
-API_TOKEN = '563623xxxx:AAGg6Fg_sEm1u5sZ1Twg-lhhm2K-xxxxxg'
+API_TOKEN = ''
 
+MODE = 'webhook' #polling or webhook
 # nginx反代域名，要求必须用https
 WEBHOOK_HOST = 'bot.tg.com'
 
@@ -9,7 +10,8 @@ WEBHOOK_PORT = 8443  # 443, 80, 88 or 8443 (port need to be 'open')
 # 监听
 WEBHOOK_LISTEN = '127.0.0.1'  # In some VPS you may need to put here the IP addr
 
-
+#给管理员发送一些日志
+ADMIN_ID = ''
 # nginx conf example
 
 # server
